@@ -30,13 +30,13 @@ class PersonaController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nombre' => 'required',
-            'alias' => 'required',
+            'alias' => 'nullable',
             'email' => 'required',
-            'rfc' => 'required',
-            'numero_ext' => 'required',
+            'rfc' => 'nullable',
+            'numero_ext' => 'nullable',
             'numero_int' => 'nullable',
-            'direccion' => 'required',
-            'tipo_persona' => 'required',
+            'direccion' => 'nullable',
+            'tipo' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -55,7 +55,7 @@ class PersonaController extends Controller
         $persona->numero_ext = $request->numero_ext;
         $persona->numero_int = $request->numero_int;
         $persona->direccion = $request->direccion;
-        $persona->tipo_persona = $request->tipo_persona;
+        $persona->tipo = $request->tipo;
         $persona->save();
 
         if ($persona->save()) {
@@ -99,13 +99,13 @@ class PersonaController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nombre' => 'required',
-            'alias' => 'required',
+            'alias' => 'nullable',
             'email' => 'required',
-            'rfc' => 'required',
-            'numero_ext' => 'required',
-            'numero_int' => 'required',
-            'direccion' => 'required',
-            'tipo_persona' => 'required',
+            'rfc' => 'nullable',
+            'numero_ext' => 'nullable',
+            'numero_int' => 'nullable',
+            'direccion' => 'nullable',
+            'tipo' => 'nullable',
         ]);
 
         if($validator->fails())
@@ -124,7 +124,7 @@ class PersonaController extends Controller
             $persona->numero_ext = $request->numero_ext;
             $persona->numero_int = $request->numero_int;
             $persona->direccion = $request->direccion;
-            $persona->tipo_persona = $request->tipo_persona;
+            $persona->tipo = $request->tipo;
             $persona->save();
             return response()->json([
                 'success' => true,
