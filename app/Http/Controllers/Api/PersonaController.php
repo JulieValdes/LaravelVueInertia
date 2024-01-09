@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -33,16 +34,16 @@ class PersonaController extends Controller
             'email' => 'required',
             'rfc' => 'required',
             'numero_ext' => 'required',
-            'numero_int' => 'required',
+            'numero_int' => 'nullable',
             'direccion' => 'required',
             'tipo_persona' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                'success' => false,
                 'message' => 'Faltan datos',
-                'data' => $validator->errors()
+                'data' => $validator->errors(),
+                'status' => '400'
             ], 400);
         }
 

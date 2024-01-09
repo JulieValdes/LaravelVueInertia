@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('personas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 60);
-            $table->string('alias', 50);
+            $table->string('alias', 50)->nullable();
             $table->string('email', 100);
-            $table->string('rfc', 18);
-            $table->string('numero_ext', 15);
-            $table->string('numero_int', 15);
+            $table->string('rfc', 18)->nullable();
+            $table->string('numero_ext', 15)->nullable();
+            $table->string('numero_int', 15)->nullable();
             //$table->string('REGIMEN FISCAL', 100); esto es un catalogo(seeder)?, hay que preguntar
-            $table->string('direccion', 100);
-            $table->enum('tipo_persona', ['Cliente', 'Proveedor']);
+            $table->string('direccion', 100)->nullable();
+            $table->enum('tipo', ['Cliente', 'Proveedor']);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -10,4 +10,6 @@ class Venta extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'ventas';
+    protected $fillable = ['clave_ext','nombre','codigo','codigo_sat','unidad','unidad_sat','almacenable','precio','costo','tipo','iva'];
 }
