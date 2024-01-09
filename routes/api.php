@@ -32,11 +32,21 @@ Route::prefix('v1.0')->group(function () {
 
     Route::delete('personas/{id}', [PersonaController::class, 'delete']);
 
-    Route::get('personas/{id}', [PersonaController::class, 'restore']);
+    Route::put('personarestore/{id}', [PersonaController::class, 'restore']);
 
     /*------------------Rutas Servicios ---------------- */
 
+    Route::get('servicios', [ServicioController::class, 'index']);
 
+    Route::post('servicios', [ServicioController::class, 'create']);
+
+    Route::get('servicios/{id}', [ServicioController::class, 'show']);
+
+    Route::put('servicios/{id}', [ServicioController::class, 'update']);
+
+    Route::delete('servicios/{id}', [ServicioController::class, 'delete']);
+
+    Route::put('serviciorestore/{id}', [ServicioController::class, 'restore']);
 
 });
 

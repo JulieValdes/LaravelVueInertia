@@ -14,15 +14,21 @@ class VentaController extends Controller
      */
     public function index()
     {
-        //
+        $ventas = Venta::all();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Lista de ventas',
+            'data' => $ventas
+        ], 200);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $vali
     }
 
     /**

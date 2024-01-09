@@ -26,20 +26,20 @@ class ServicioController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request, Servicio $servicio)
     {
         $validator = Validator::make($request->all(), [
-            'clave_ext' => 'required',
+            'clave_ext' => 'nullable',
             'nombre' => 'required',
-            'codigo' => 'required',
+            'codigo' => 'nullable',
             'codigo_sat' => 'required',
-            'unidad' => 'required',
+            'unidad' => 'nullable',
             'unidad_sat' => 'required',
-            'almacenable' => 'required',
+            'almacenable' => 'nullable',
             'precio' => 'required',
-            'costo' => 'required',
+            'costo' => 'nullable',
             'tipo' => 'required',
-            'iva' => 'required',
+            'iva' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -103,17 +103,17 @@ class ServicioController extends Controller
     public function update(Request $request, Servicio $servicio, Int $id)
     {
         $validator = Validator::make($request->all(), [
-            'clave_ext' => 'required',
+            'clave_ext' => 'nullable',
             'nombre' => 'required',
-            'codigo' => 'required',
+            'codigo' => 'nullable',
             'codigo_sat' => 'required',
-            'unidad' => 'required',
+            'unidad' => 'nullable',
             'unidad_sat' => 'required',
-            'almacenable' => 'required',
+            'almacenable' => 'nullable',
             'precio' => 'required',
-            'costo' => 'required',
+            'costo' => 'nullable',
             'tipo' => 'required',
-            'iva' => 'required',
+            'iva' => 'nullable',
         ]);
 
         if ($validator->fails()) {
